@@ -220,14 +220,8 @@
 			 </button>
                     </div>
                     <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">首页</a></li>
-                            <li><a href="player.html">球员</a></li>
-                            <li><a href="match.html">赛事</a></li>
-                            <!-- <li><a href="single-page-with-img.html">Single Page - with Image</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="gallery-video-boxed.html">Gallery</a></li>
-                            <li><a href="contact.html">Contact</a></li> -->
+                        <ul class="nav navbar-nav" id="daohangli">
+
                         </ul>
                         <!-- <ul class="social">
                             <li class="social-facebook">
@@ -247,10 +241,10 @@
                             </li>
                         </ul> -->
                         <div class="search-block">
-                            <form>
+                            <!-- <form>
                                 <input type="search" placeholder="Search" placeholder="全英 女单" />
                                 <button><a>搜索</a></button>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                     <!-- /.nav-collapse -->
@@ -320,6 +314,25 @@
     <script src="js/jquery-1.12.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/lity.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var dh = ''
+            u1 = window.location.search.split('?')[1];
+            if (u1 != null && u1.length != 0) {
+                u2 = u1.split('=')[0]
+                username = u1.split('=')[1]
+                if (u2 != null && u2.length != 0 && u2 == 'username') {
+                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li>'
+                } else {
+                    dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+                }
+            } else {
+                dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+            }
+            console.log(dh)
+            $('#daohangli').html(dh);
+        })
+    </script>
     <script>
         function method_nd() {
             url = window.location.search.split('?')[1];

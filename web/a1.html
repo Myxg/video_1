@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="chart" style="height: 450px;width: 450px"></div>
+    <script type="text/javascript" src="./js/echarts.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.12.1.min.js"></script>
+
+
+    <script>
+        var radar_chart = echarts.init(document.getElementById("chart"));
+        var option = {
+            title: {
+                text: '基础雷达图'
+            },
+            tooltip: {},
+            //    legend: {
+            //      data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+            //    },
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [{
+                    name: '3000',
+                    max: 10
+                }, {
+                    name: '30',
+                    max: 10
+                }, {
+                    name: 'BMI',
+                    max: 10
+                }, {
+                    name: '卧推',
+                    max: 10
+                }, {
+                    name: '坐位体前屈',
+                    max: 10
+                }, {
+                    name: '垂直纵跳',
+                    max: 10
+                }, {
+                    name: '引体向上',
+                    max: 10
+                }, {
+                    name: '深蹲',
+                    max: 10
+                }, {
+                    name: '背肌耐力',
+                    max: 10
+                }, {
+                    name: '腹肌耐力',
+                    max: 10
+                }]
+            },
+            series: [{
+                // name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                itemStyle: {
+                    normal: {
+                        color: '#a8bcd4'
+                    }
+                },
+                data: [{
+                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
+                        name: '预算分配（Allocated Budget）'
+                    },
+                    //  {
+                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
+                    //     name : '实际开销（Actual Spending）'
+                    // }
+                ]
+            }]
+        };
+        radar_chart.setOption(option);
+    </script>
+</body>
+
+</html>

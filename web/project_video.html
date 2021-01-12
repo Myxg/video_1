@@ -46,6 +46,15 @@
             color: #fff;
         }
         
+        video {
+            width: 100%;
+            height: 200px;
+        }
+        
+        #home-main article {
+            height: 300px;
+        }
+        
         @media (min-width: 1200px) {
             #zxsp {
                 margin-left: 35px;
@@ -103,14 +112,8 @@
 			 </button>
                     </div>
                     <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">首页</a></li>
-                            <li><a href="player.html">球员</a></li>
-                            <li><a href="match.html">赛事</a></li>
-                            <!-- <li><a href="single-page-with-img.html">Single Page - with Image</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="gallery-video-boxed.html">Gallery</a></li>
-                            <li><a href="contact.html">Contact</a></li> -->
+                        <ul class="nav navbar-nav" id="daohangli">
+
                         </ul>
                         <!-- <ul class="social">
                             <li class="social-facebook">
@@ -130,10 +133,10 @@
                             </li>
                         </ul> -->
                         <div class="search-block">
-                            <form>
+                            <!-- <form>
                                 <input type="search" placeholder="Search" placeholder="全英 女单" />
                                 <button><a>搜索</a></button>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                     <!-- /.nav-collapse -->
@@ -326,9 +329,25 @@
         console.log(year)
         console.log(project)
         $(document).ready(function() {
+            var dh = ''
+            u1 = window.location.search.split('?')[1];
+            if (u1 != null && u1.length != 0) {
+                u2 = u1.split('=')[0]
+                username = u1.split('=')[1]
+                if (u2 != null && u2.length != 0 && u2 == 'username') {
+                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li>'
+                } else {
+                    dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+                }
+            } else {
+                dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+            }
+            console.log(dh)
+            $('#daohangli').html(dh);
             var typeStr = '';
+
             $.ajax({
-                url: 'http://127.0.0.1:8001/project_video/',
+                url: 'https://videos.hbang.com.cn/project_video/',
                 dataType: "JSON",
                 type: "GET",
                 async: "false",
@@ -346,8 +365,9 @@
                             console.log(n['url'])
                             typeStr += '<article class="col-lg-3 col-md-6 col-sm-4"><div class="post post-medium"><div class="thumbr"><a class="post-thumb" href="' + n['url'] + '" data-lity>' +
                                 '<span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>' +
-                                '<img class="img-responsive" src="https://extranet.bwfbadminton.com/docs/events/3801/logo-colour/danish_open.svg" alt="#"></a></div><div class="infor">' +
+                                '<video id="video" preload="Auto" src="' + n['url'] + '"></video></a></div><div class="infor">' +
                                 '<h4><a class="title" href="#">' + n['name'] + '</a></h4></div></div></article>'
+                                // typeStr += '<a class="col-lg-3 col-md-6 col-sm-4 vvv" href="' + n['url'] + '"><div class="con"><p><div class="mi">' + n['name'] + '</div></p></div></a>'
 
                         }
                         $('#match_list').html(typeStr); //用拼接的str设置id=wtype的模块的内容

@@ -26,8 +26,13 @@
             padding: 50px 0;
         }
         
+        video {
+            width: 100%;
+            height: 200px;
+        }
+        
         #home-main article {
-            height: 360px;
+            height: 300px;
         }
         
         button {
@@ -48,6 +53,10 @@
         button:hover {
             background-color: #4280e6;
             color: #fff;
+        }
+        
+        .search-field {
+            margin-bottom: 10px;
         }
         
         @media (min-width: 1200px) {
@@ -101,14 +110,8 @@
 			 </button>
                     </div>
                     <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">首页</a></li>
-                            <li><a href="player.html">球员</a></li>
-                            <li><a href="match.html">赛事</a></li>
-                            <!-- <li><a href="single-page-with-img.html">Single Page - with Image</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="gallery-video-boxed.html">Gallery</a></li>
-                            <li><a href="contact.html">Contact</a></li> -->
+                        <ul class="nav navbar-nav" id="daohangli">
+
                         </ul>
                         <!-- <ul class="social">
                             <li class="social-facebook">
@@ -128,10 +131,10 @@
                             </li>
                         </ul> -->
                         <div class="search-block">
-                            <form id="search" action="##" method="post">
+                            <!-- <form id="search" action="##" method="post">
                                 <input type="search" placeholder="Search" placeholder="全英 女单" value="" />
                                 <button><a>搜索</a></button>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                     <!-- /.nav-collapse -->
@@ -151,8 +154,7 @@
                             <li class="fa fa-chevron-right"><a href="http://www.olympic.cn" target="view_window">中国奥委会</a></li>
                             <li class="fa fa-chevron-right"><a href="http://www.sport.gov.cn/" target="view_window">国家体育总局</a></li>
                             <li class="fa fa-chevron-right"><a href="http://cbsl.sports.cn/" target="view_window">中国羽毛球超级联赛</a></li>
-                            <li class="fa fa-chevron-right"><a href="http://www.hnba.org.cn/" target="view_window">湖南羽协</a></li>
-                            <li class="fa fa-chevron-right"><a href="#">movies</a></li>
+
                         </ul>
                     </article>
                     <!-- <div class="clearfix spacer"></div> -->
@@ -175,16 +177,11 @@
                         <!-- RIGHT ASIDE -->
                         <div class="col-lg-3 hidden-md col-sm-12 text-center top-sidebar">
                             <!-- SUBSCRIBE BOX -->
-                            <div class="subscribe-box">
+                            <div class="subscribe-box" id="denglu">
                                 <h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>登录</h2>
-                                <!-- SUBSCRIBE FIELD -->
-                                <form name="search-submit" method="post" action="#" id="subscribe-submit">
-                                    <fieldset class="search-fieldset">
-                                        <input id="subscribe" type="text" name="search" size="12" class="search-field" placeholder="用户名" value="">
-                                        <input id="subscribe" type="password" name="search" size="12" class="search-field" placeholder="密码" value="">
-                                        <!-- <button class="subscribe-btn" type="submit" title="Subscribe">登录</button> -->
-                                    </fieldset>
-                                </form>
+                                <input id="user" type="text" name="user" size="12" class="search-field" placeholder="用户名" value="">
+                                <input id="pwd" type="password" name="pwd" size="12" class="search-field" placeholder="密码" value="">
+                                <button id="loginBtn" class="subscribe-btn" type="submit" title="Subscribe" onclick="login()">登录</button>
                             </div>
                             <!-- SIDEBAR ADVERTISE BOX -->
                             <!-- <a href="" class="banner-l hidden-sm hidden-xs">
@@ -763,9 +760,36 @@
     <script src="js/lity.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            var dh = ''
+            var dl = ''
+            u1 = window.location.search.split('?')[1];
+            if (u1 != null && u1.length != 0) {
+                u2 = u1.split('=')[0]
+                console.log(u2)
+                username = u1.split('=')[1]
+                if (u2 != null && u2.length != 0 && u2 == 'username') {
+                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li>'
+                    dl += '<h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>HELLO!</h2><br><h2>' + username + '</h2>'
+                } else {
+                    dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+                    dl += '<h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>登录</h2>' +
+                        '<input id="user" type="text" name="user" size="12" class="search-field" placeholder="用户名" value="">' +
+                        '<input id="pwd" type="password" name="pwd" size="12" class="search-field" placeholder="密码" value="">' +
+                        '<button id="loginBtn" class="subscribe-btn" type="submit" title="Subscribe" onclick="login()">登录</button>'
+                }
+            } else {
+                dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+                dl += '<h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>登录</h2>' +
+                    '<input id="user" type="text" name="user" size="12" class="search-field" placeholder="用户名" value="">' +
+                    '<input id="pwd" type="password" name="pwd" size="12" class="search-field" placeholder="密码" value="">' +
+                    '<button id="loginBtn" class="subscribe-btn" type="submit" title="Subscribe" onclick="login()">登录</button>'
+            }
+
+            $('#daohangli').html(dh);
+            $('#denglu').html(dl);
             var typeStr = '';
             $.ajax({
-                url: 'http://127.0.0.1:8001',
+                url: 'https://videos.hbang.com.cn/',
                 dataType: "JSON",
                 type: "GET",
                 async: "false",
@@ -777,8 +801,9 @@
                             var n = result[i]
                             typeStr += '<article class="col-lg-3 col-md-6 col-sm-4"><div class="post post-medium"><div class="thumbr"><a class="post-thumb" href="' + n['url'] + '" data-lity>' +
                                 '<span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>' +
-                                '<img class="img-responsive" src="https://extranet.bwfbadminton.com/docs/events/3801/logo-colour/danish_open.svg" alt="#"></a></div><div class="infor">' +
+                                '<video id="video" preload="Auto" src="' + n['url'] + '"></video></a></div><div class="infor">' +
                                 '<h4><a class="title" href="#">' + n['name'] + '</a></h4></div></div></article>'
+                                // typeStr += '<a class="col-lg-3 col-md-6 col-sm-4 vvv" href="' + n['url'] + '"><video id="video" preload="Auto" src="' + n['url'] + '"></video><div class="con"><p><div class="mi">' + n['name'] + '</div></p></div></a>'
 
                         }
                         $('#match_list').html(typeStr); //用拼接的str设置id=wtype的模块的内容
@@ -787,6 +812,37 @@
                 }
             });
         })
+    </script>
+    <script text="text/javascript">
+        function login() {
+            var user = document.getElementById("user").value
+            var pwd = document.getElementById("pwd").value
+                // console.log(user, pwd)
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST", //方法类型
+                async: true,
+                dataType: "json", //预期服务器返回的数据类型
+                url: "https://videos.hbang.com.cn/login/", //url
+                // withCredentials: 'true',
+                // data: $('#subscribe-submit').serialize(),
+                data: {
+                    'user': user,
+                    'pwd': pwd,
+                },
+                success: function(data) {
+                    var result = data['data'];
+                    if (result != null && result.length != 0) {
+                        location = "index.html?username=" + result;
+                    } else {
+                        location = "index.html";
+                    }
+                },
+                error: function() {
+                    alert("异常！");
+                }
+            });
+        }
     </script>
     <!-- <script type="text/javascript">
         function search() {

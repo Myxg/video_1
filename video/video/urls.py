@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^player_video/$', views.player_video),
     url(r'^project_video/$', views.project_video),
-    url(r'^search/$', views.search)
+    url(r'^search/$', views.search),
+    url(r'^login/$', views.login),
+    url(r'^playercn_info/$', views.playercn_info)
 
 ]
