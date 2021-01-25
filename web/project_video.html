@@ -318,34 +318,37 @@
     <script src="js/lity.js"></script>
     <script>
         url = window.location.search.split('?')[1];
-        var canshu = decodeURI(url, 'utf-8')
-        m1 = canshu.split('&')[0]
-        y1 = canshu.split('&')[1]
-        p1 = canshu.split('&')[2]
-        match = m1.split('=')[1]
-        year = y1.split('=')[1]
-        project = p1.split('=')[1]
-        console.log(match)
-        console.log(year)
-        console.log(project)
+        var canshu = decodeURI(url, 'utf-8');
+        var myp = canshu.split('&');
+
+
+        if (myp.length == 4) {
+            match = myp[1].split('=')[1]
+            year = myp[2].split('=')[1]
+            project = myp[3].split('=')[1]
+        } else {
+            match = myp[0].split('=')[1]
+            year = myp[1].split('=')[1]
+            project = myp[2].split('=')[1]
+        }
+
         $(document).ready(function() {
             var dh = ''
-            u1 = window.location.search.split('?')[1];
+            url = window.location.search.split('?')[1];
+            var u1 = decodeURI(url, 'utf-8');
             if (u1 != null && u1.length != 0) {
                 u2 = u1.split('=')[0]
-                username = u1.split('=')[1]
+                username = u1.split('=')[1].split('&')[0]
                 if (u2 != null && u2.length != 0 && u2 == 'username') {
-                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li>'
+                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li><li><a href="upload.html?username=' + username + '">文件上传</a></li>'
                 } else {
                     dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
                 }
             } else {
                 dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
             }
-            console.log(dh)
             $('#daohangli').html(dh);
             var typeStr = '';
-
             $.ajax({
                 url: 'https://videos.hbang.com.cn/project_video/',
                 dataType: "JSON",

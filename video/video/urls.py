@@ -27,6 +27,11 @@ urlpatterns = [
     url(r'^project_video/$', views.project_video),
     url(r'^search/$', views.search),
     url(r'^login/$', views.login),
-    url(r'^playercn_info/$', views.playercn_info)
+    url(r'^playercn_info/$', views.playercn_info),
+    url(r'^player_list/$', views.player_list),
+    url(r'^playercn_list/$', views.playercn_list),
+    url(r'^match_list/$', views.match_list),
+    url(r'^playercn_video/$', views.playercn_video),
+    url(r'^upload/$', views.upload)
 
 ]

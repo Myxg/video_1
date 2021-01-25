@@ -66,6 +66,28 @@ class video_user(models.Model):
         managed = True
         db_table = 'video_user'
 
+class file_list(models.Model):
+    objects = None
+    file_name = models.CharField(max_length=128)
+    file_class = models.CharField(max_length=64)
+    upload_user = models.CharField(max_length=64)
+    upload_DATE = models.DateField(max_length=64)
+    status = models.CharField(max_length=64)
+
+    class Meta:
+        managed = True
+        db_table = 'file_list'
+
+# class player_list(models.Model):
+#     objects = None
+#     player_name = models.CharField(max_length=128)
+#     photo = models.CharField(max_length=128)
+#     project = models.CharField(max_length=128)
+#
+#     class Meta:
+#         managed = True
+#         db_table = 'player_list'
+
 
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:

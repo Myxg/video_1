@@ -331,24 +331,29 @@
     <script>
         url = window.location.search.split('?')[1];
         var canshu = decodeURI(url, 'utf-8')
-        console.log(canshu)
-        player = canshu.split('=')[1]
-        console.log(player)
+            // console.log(canshu)
+            // player = canshu.split('=')[1]
+            // console.log(player)
         $(document).ready(function() {
             var dh = ''
-            u1 = window.location.search.split('?')[1];
+            url = window.location.search.split('?')[1];
+            var u1 = decodeURI(url, 'utf-8');
             if (u1 != null && u1.length != 0) {
                 u2 = u1.split('=')[0]
-                username = u1.split('=')[1]
+                username = u1.split('=')[1].split('&')[0]
+                player = u1.split('=')[2]
                 if (u2 != null && u2.length != 0 && u2 == 'username') {
-                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li>'
+                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li>' +
+                        '<li><a href="playercn.html?username=' + username + '">中国球员</a></li><li><a href="upload.html?username=' + username + '">文件上传</a></li>'
+                    player = u1.split('=')[2]
                 } else {
                     dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+                    player = u1.split('=')[1]
                 }
             } else {
                 dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
+                player = u1.split('=')[1]
             }
-            console.log(dh)
             $('#daohangli').html(dh);
             var typeStr = '';
             $.ajax({

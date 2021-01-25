@@ -56,21 +56,23 @@
         }
         
         #pm {
-            height: 160px;
+            height: 240px;
             width: 100%;
-            border: 3px solid black;
+            /* border: 5px solid black; */
             border-radius: 10px;
         }
         
-        table {
+        #pm table {
             width: 100%;
             height: 100%;
             text-align: center;
             font-size: 25px;
         }
         
-        td {
+        #pm td {
             width: 20%;
+            /* border-right: 2px solid black; */
+            /* border-bottom: 2px solid black; */
         }
         
         #echarts_list {
@@ -81,7 +83,14 @@
         
         .ldbox {
             width: 100%;
-            height: 700px;
+            height: 1000px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .ldbox_shenglv {
+            width: 100%;
+            height: 400px;
             margin-top: 20px;
             overflow: hidden;
         }
@@ -94,8 +103,8 @@
         }
         
         .tb {
-            height: 40%;
-            width: 33%;
+            height: 28%;
+            width: 50%;
             float: left;
             margin-top: 20px;
         }
@@ -104,6 +113,34 @@
             height: 23%;
             width: 50%;
             float: left;
+        }
+        
+        .ldbox_list {
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .outbox {
+            height: 360px;
+            width: 100%;
+            overflow-y: auto;
+            border: 5px solid black;
+            border-radius: 10px;
+        }
+        
+        .outbox table {
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+        }
+        
+        .outbox td {
+            width: 20%;
+            height: 70px;
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
         }
         
         @media (min-width: 1200px) {
@@ -133,6 +170,84 @@
         @media (max-width: 1366px) {
             #home-main article {
                 height: auto;
+            }
+        }
+        
+        @media (max-width: 667px) {
+            #pm {
+                height: 240px;
+                width: 100%;
+                /* border: 5px solid black; */
+                border-radius: 10px;
+            }
+            #pm table {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                font-size: 16px;
+            }
+            #pm td {
+                width: 20%;
+                /* border-right: 2px solid black; */
+                /* border-bottom: 2px solid black; */
+            }
+            #echarts_list {
+                width: 100%;
+                height: 600px;
+                float: left;
+            }
+            .ldbox {
+                width: 100%;
+                height: 2000px;
+                margin-top: 20px;
+                overflow: hidden;
+            }
+            .ldbox_shenglv {
+                width: 100%;
+                height: 400px;
+                margin-top: 20px;
+                overflow: hidden;
+            }
+            .zxbox {
+                width: 100%;
+                height: 2500px;
+                margin-top: 20px;
+                overflow: hidden;
+            }
+            .tb {
+                height: 15%;
+                width: 100%;
+                float: left;
+                margin-top: 20px;
+            }
+            .zx {
+                height: 12%;
+                width: 100%;
+                float: left;
+            }
+            .ldbox_list {
+                width: 100%;
+                height: 500px;
+                margin-top: 20px;
+                overflow: hidden;
+            }
+            .outbox {
+                height: 360px;
+                width: 100%;
+                overflow-y: auto;
+                border: 5px solid black;
+                border-radius: 10px;
+            }
+            .outbox table {
+                width: 100%;
+                text-align: center;
+                font-size: 16px;
+            }
+            .outbox td {
+                width: 20%;
+                height: 70px;
+                border-right: 2px solid black;
+                border-bottom: 2px solid black;
             }
         }
     </style>
@@ -211,19 +326,27 @@
                         <div class="col-lg-9 col-md-12 col-sm-12">
                             <div id="pm">
                                 <table>
-                                    <tr>
-                                        <td>球员</td>
-                                        <td>世界排名</td>
-                                        <td>今年冠军</td>
-                                        <td>今年亚军</td>
-                                        <td>几年3、4名</td>
+                                    <tr id="p0">
+
+                                    </tr>
+                                    <tr id="p1">
+
                                     </tr>
                                     <tr>
-                                        <td>谌龙</td>
-                                        <td>5</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td>今年冠军</td>
+                                        <td>今年亚军</td>
+                                        <td>今年3、4名</td>
+                                    </tr>
+                                    <tr id="p2">
+
+                                    </tr>
+                                    <tr>
+                                        <td>去年冠军</td>
+                                        <td>去年亚军</td>
+                                        <td>去年3、4名</td>
+                                    </tr>
+                                    <tr id="p3">
+
                                     </tr>
                                 </table>
                             </div>
@@ -264,6 +387,7 @@
                                     <div class="tb" id="chart_xll5"></div>
                                     <div class="tb" id="chart_xll6"></div>
                                 </div>
+
                                 <div class="zxbox" id="box5">
                                     <input style="text-align: center; height: 60px; font-size: 30px; background-color: cornflowerblue;" type="button" value="生理生化" class="btn5" />
                                     <div class="zx" id="chart_bxb"></div>
@@ -275,6 +399,19 @@
                                     <div class="zx" id="chart_xqyj"></div>
                                     <div class="zx" id="chart_xhdb"></div>
                                     <div class="zx" id="chart4"></div>
+                                </div>
+                                <div class="ldbox_shenglv" id="box6">
+                                    <input style="text-align: center; height: 60px; font-size: 30px; background-color: cornflowerblue;" type="button" value="胜率" class="btn6" />
+                                    <div class="tb" id="chart_shenglv1" style="width:100%; height: 80%;"></div>
+                                </div>
+                                <div class="ldbox_list" id="box7">
+                                    <input style="text-align: center; height: 60px; font-size: 30px; background-color: cornflowerblue;" type="button" value="视频列表" class="btn7" />
+                                    <div class="outbox">
+                                        <table id="sp_list">
+
+                                        </table>
+                                    </div>
+
                                 </div>
 
 
@@ -305,21 +442,27 @@
         player = canshu.split('=')[1]
         $(document).ready(function() {
             var dh = ''
-            u1 = window.location.search.split('?')[1];
+            url = window.location.search.split('?')[1];
+            var u1 = decodeURI(url, 'utf-8');
             if (u1 != null && u1.length != 0) {
                 u2 = u1.split('=')[0]
-                username = u1.split('=')[1]
+                username = u1.split('=')[1].split('&')[0]
+                player = u1.split('=')[2]
                 if (u2 != null && u2.length != 0 && u2 == 'username') {
-                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li>'
+                    dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li><li><a href="upload.html?username=' + username + '">文件上传</a></li>'
                 } else {
                     dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
                 }
             } else {
                 dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
             }
-            console.log(dh)
             $('#daohangli').html(dh);
             var typeStr = '';
+            var strp0 = '';
+            var strp1 = '';
+            var strp2 = '';
+            var strp3 = '';
+            var shipinstr = '';
             $.ajax({
                 url: 'https://videos.hbang.com.cn/playercn_info/',
                 dataType: "JSON",
@@ -329,12 +472,28 @@
                     'player': player,
                 },
                 success: function(data) {
+                    var xinxi = data['xinxi'];
+                    strp0 += '<td rowspan="2">' + xinxi[0] + '</td><td>世界排名</td><td>总决赛排名</td>'
+                    strp1 += '<td>' + xinxi[1] + '</td><td>' + xinxi[2] + '</td>'
+                    strp2 += '<td>' + xinxi[3] + '</td><td>' + xinxi[4] + '</td><td>' + xinxi[5] + '</td>'
+                    strp3 += '<td>' + xinxi[6] + '</td><td>' + xinxi[7] + '</td><td>' + xinxi[8] + '</td>'
+                    $('#p0').html(strp0);
+                    $('#p1').html(strp1);
+                    $('#p2').html(strp2);
+                    $('#p3').html(strp3);
+                    var jctn_time = data['jctn_time'];
                     var data_jctn = data['jctn'];
+                    var zxtn_time = data['zxtn_time'];
                     var data_zxtn = data['zxtn'];
+                    var fms_time = data['fms_time'];
                     var data_fms = data['fms'];
+                    var xxl_time = data['xxl_time'];
                     var data_xxl = data['xxl'];
-                    var slsh_time = data['slsh_time']
+                    var slsh_time = data['slsh_time'];
                     var data_slsh = data['slsh'];
+                    var wgqy = data['wgqy'];
+                    var shenglv = data['shenglv'];
+                    var shipin = data['shipin'];
                     var radar_chart_jichutineng1 = echarts.init(document.getElementById("chart_jichutineng1"));
                     var radar_chart_jichutineng2 = echarts.init(document.getElementById("chart_jichutineng2"));
                     var radar_chart_jichutineng3 = echarts.init(document.getElementById("chart_jichutineng3"));
@@ -367,11 +526,12 @@
                     var radar_chart_xns = echarts.init(document.getElementById("chart_xns"));
                     var radar_chart_xqyj = echarts.init(document.getElementById("chart_xqyj"));
                     var radar_chart_xhdb = echarts.init(document.getElementById("chart_xhdb"));
+                    var radar_chart_shenglv1 = echarts.init(document.getElementById("chart_shenglv1"));
                     // var radar_chart4 = echarts.init(document.getElementById("chart4"));
                     var option_jichutineng1 = {
                         title: {
-                            text: '基础体能1',
-                            top: '5%',
+                            text: jctn_time[0],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -447,8 +607,8 @@
                     };
                     var option_jichutineng2 = {
                         title: {
-                            text: '基础体能2',
-                            top: '5%',
+                            text: jctn_time[1],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -524,8 +684,8 @@
                     };
                     var option_jichutineng3 = {
                         title: {
-                            text: '基础体能3',
-                            top: '5%',
+                            text: jctn_time[2],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -601,8 +761,8 @@
                     };
                     var option_jichutineng4 = {
                         title: {
-                            text: '基础体能4',
-                            top: '5%',
+                            text: jctn_time[3],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -678,8 +838,8 @@
                     };
                     var option_jichutineng5 = {
                         title: {
-                            text: '基础体能5',
-                            top: '5%',
+                            text: jctn_time[4],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -755,8 +915,8 @@
                     };
                     var option_jichutineng6 = {
                         title: {
-                            text: '基础体能6',
-                            top: '5%',
+                            text: jctn_time[5],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -833,8 +993,8 @@
 
                     var option_zhuanxiangtineng1 = {
                         title: {
-                            text: '专项体能1',
-                            top: '5%',
+                            text: zxtn_time[0],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -904,8 +1064,8 @@
                     };
                     var option_zhuanxiangtineng2 = {
                         title: {
-                            text: '专项体能2',
-                            top: '5%',
+                            text: zxtn_time[1],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -975,8 +1135,8 @@
                     };
                     var option_zhuanxiangtineng3 = {
                         title: {
-                            text: '专项体能3',
-                            top: '5%',
+                            text: zxtn_time[2],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1046,8 +1206,8 @@
                     };
                     var option_zhuanxiangtineng4 = {
                         title: {
-                            text: '专项体能4',
-                            top: '5%',
+                            text: zxtn_time[3],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1117,8 +1277,8 @@
                     };
                     var option_zhuanxiangtineng5 = {
                         title: {
-                            text: '专项体能5',
-                            top: '5%',
+                            text: zxtn_time[4],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1188,8 +1348,8 @@
                     };
                     var option_zhuanxiangtineng6 = {
                         title: {
-                            text: '专项体能6',
-                            top: '5%',
+                            text: zxtn_time[5],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1260,8 +1420,8 @@
 
                     var option_FMS1 = {
                         title: {
-                            text: 'FMS1',
-                            top: '5%',
+                            text: fms_time[0],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1343,8 +1503,8 @@
                     };
                     var option_FMS2 = {
                         title: {
-                            text: 'FMS2',
-                            top: '5%',
+                            text: fms_time[1],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1426,8 +1586,8 @@
                     };
                     var option_FMS3 = {
                         title: {
-                            text: 'FMS3',
-                            top: '5%',
+                            text: fms_time[2],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1509,8 +1669,8 @@
                     };
                     var option_FMS4 = {
                         title: {
-                            text: 'FMS4',
-                            top: '5%',
+                            text: fms_time[3],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1592,8 +1752,8 @@
                     };
                     var option_FMS5 = {
                         title: {
-                            text: 'FMS5',
-                            top: '5%',
+                            text: fms_time[4],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1675,8 +1835,8 @@
                     };
                     var option_FMS6 = {
                         title: {
-                            text: 'FMS6',
-                            top: '5%',
+                            text: fms_time[5],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1759,8 +1919,8 @@
 
                     var option_xll1 = {
                         title: {
-                            text: '训练量1',
-                            top: '5%',
+                            text: xxl_time[0],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1802,8 +1962,8 @@
                     };
                     var option_xll2 = {
                         title: {
-                            text: '训练量2',
-                            top: '5%',
+                            text: xxl_time[1],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1845,8 +2005,8 @@
                     };
                     var option_xll3 = {
                         title: {
-                            text: '训练量3',
-                            top: '5%',
+                            text: xxl_time[2],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1888,8 +2048,8 @@
                     };
                     var option_xll4 = {
                         title: {
-                            text: '训练量4',
-                            top: '5%',
+                            text: xxl_time[3],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1931,8 +2091,8 @@
                     };
                     var option_xll5 = {
                         title: {
-                            text: '训练量5',
-                            top: '5%',
+                            text: xxl_time[4],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -1974,8 +2134,8 @@
                     };
                     var option_xll6 = {
                         title: {
-                            text: '训练量6',
-                            top: '5%',
+                            text: xxl_time[5],
+                            top: '3%',
                             left: '3%',
                             textStyle: {
                                 color: '#fff',
@@ -2269,10 +2429,57 @@
 
                             name: '血红蛋白',
                             type: 'line',
-                            data: data_slsh[7]
+                            data: data_slsh
                         }]
                     };
 
+                    var option_shenglv1 = {
+                        title: {
+                            text: '胜率',
+                            top: '5%',
+                            left: '3%',
+                            textStyle: {
+                                color: '#fff',
+                                fontSize: 26,
+                            }
+                        },
+                        tooltip: {},
+
+                        radar: {
+                            name: {
+                                textStyle: {
+                                    color: '#fff',
+                                    backgroundColor: '#999',
+                                    borderRadius: 3,
+                                    padding: [3, 5]
+                                }
+                            },
+                            indicator: wgqy
+                        },
+                        series: [{
+
+                            // name: '预算 vs 开销（Budget vs spending）',
+                            type: 'radar',
+                            // areaStyle: {normal: {}},
+                            itemStyle: {
+                                normal: {
+                                    color: '#a8bcd4'
+                                }
+                            },
+                            areaStyle: {
+                                color: '#5840D4',
+                            },
+                            data: [{
+                                    value: shenglv,
+                                    name: '胜率'
+                                },
+                                //  {
+                                //     value : [5000, 14000, 28000, 31000, 42000, 21000],
+                                //     name : '实际开销（Actual Spending）'
+                                // }
+                            ]
+                        }]
+                    };
 
                     radar_chart_jichutineng1.setOption(option_jichutineng1);
                     radar_chart_jichutineng2.setOption(option_jichutineng2);
@@ -2308,6 +2515,17 @@
                     radar_chart_xqyj.setOption(option_xqyj);
                     radar_chart_xhdb.setOption(option_xhdb);
 
+                    radar_chart_shenglv1.setOption(option_shenglv1);
+
+                    if (shipin != null && shipin.length != 0) {
+                        for (var i = 0; i < shipin.length; i++) {
+                            var n = shipin[i]
+                            shipinstr += '<tr><td><a target="view_window" href="playercn_video.html?username=' + username + '&videoname=' + n[0] + '&matchname=' + n[1] + '">' + n[0] + '</a></td><td>' + n[1] + '</td><td>' + n[2] + '</td><td>' + n[3] + '</td><td>' + n[4] + '</td></tr>'
+
+                        }
+                        $('#sp_list').html(shipinstr); //用拼接的str设置id=wtype的模块的内容
+                    }
+
                     $("#home1").css("height", $(document).height());
                 }
             });
@@ -2319,2109 +2537,152 @@
         });
         $(".btn1").click(function() {  
             bh = document.getElementById('box1').offsetHeight;
-            console.log(bh)
-            if (bh == 700) {
+            if (bh == 1000) {
                 $("#box1").animate({
                     height: "60px"
                 });
-            } else {
+            }
+            if (bh == 60) {
                 $("#box1").animate({
-                    height: "700px"
+                    height: "1000px"
+                });
+            }
+            if (bh == 2000) {
+                $("#box1").animate({
+                    height: "70px"
+                });
+            }
+            if (bh == 70) {
+                $("#box1").animate({
+                    height: "2000px"
                 });
             }
 
         });
         $(".btn2").click(function() {  
             bh = document.getElementById('box2').offsetHeight;
-            console.log(bh)
-            if (bh == 700) {
+            if (bh == 1000) {
                 $("#box2").animate({
                     height: "60px"
                 });
-            } else {
+            }
+            if (bh == 60) {
                 $("#box2").animate({
-                    height: "700px"
+                    height: "1000px"
+                });
+            }
+            if (bh == 2000) {
+                $("#box2").animate({
+                    height: "70px"
+                });
+            }
+            if (bh == 70) {
+                $("#box2").animate({
+                    height: "2000px"
                 });
             }
 
         });
         $(".btn3").click(function() {  
             bh = document.getElementById('box3').offsetHeight;
-            console.log(bh)
-            if (bh == 700) {
+            if (bh == 1000) {
                 $("#box3").animate({
                     height: "60px"
                 });
-            } else {
+            }
+            if (bh == 60) {
                 $("#box3").animate({
-                    height: "700px"
+                    height: "1000px"
                 });
             }
-
+            if (bh == 2000) {
+                $("#box3").animate({
+                    height: "70px"
+                });
+            }
+            if (bh == 70) {
+                $("#box3").animate({
+                    height: "2000px"
+                });
+            }
         });
         $(".btn4").click(function() {  
             bh = document.getElementById('box4').offsetHeight;
-            console.log(bh)
-            if (bh == 700) {
+            if (bh == 1000) {
                 $("#box4").animate({
                     height: "60px"
                 });
-            } else {
+            }
+            if (bh == 60) {
                 $("#box4").animate({
-                    height: "700px"
+                    height: "1000px"
+                });
+            }
+            if (bh == 2000) {
+                $("#box4").animate({
+                    height: "70px"
+                });
+            }
+            if (bh == 70) {
+                $("#box4").animate({
+                    height: "2000px"
                 });
             }
 
         });
         $(".btn5").click(function() {  
             bh = document.getElementById('box5').offsetHeight;
-            console.log(bh)
             if (bh == 1200) {
                 $("#box5").animate({
                     height: "60px"
                 });
-            } else {
+            }
+            if (bh == 60) {
                 $("#box5").animate({
                     height: "1200px"
+                });
+            }
+            if (bh == 2500) {
+                $("#box5").animate({
+                    height: "70px"
+                });
+            }
+            if (bh == 70) {
+                $("#box5").animate({
+                    height: "2500px"
+                });
+            }
+
+        });
+        $(".btn6").click(function() {  
+            bh = document.getElementById('box6').offsetHeight;
+            if (bh == 400) {
+                $("#box6").animate({
+                    height: "60px"
+                });
+            } else {
+                $("#box6").animate({
+                    height: "400px"
+                });
+            }
+
+        });
+        $(".btn7").click(function() {  
+            bh = document.getElementById('box7').offsetHeight;
+            if (bh == 500) {
+                $("#box7").animate({
+                    height: "60px"
+                });
+            } else {
+                $("#box7").animate({
+                    height: "500px"
                 });
             }
 
         });
     </script>
 
-    <!-- <script>
-        var radar_chart_jichutineng1 = echarts.init(document.getElementById("chart_jichutineng1"));
-        var radar_chart_jichutineng2 = echarts.init(document.getElementById("chart_jichutineng2"));
-        var radar_chart_jichutineng3 = echarts.init(document.getElementById("chart_jichutineng3"));
-        var radar_chart_jichutineng4 = echarts.init(document.getElementById("chart_jichutineng4"));
-        var radar_chart_jichutineng5 = echarts.init(document.getElementById("chart_jichutineng5"));
-        var radar_chart_jichutineng6 = echarts.init(document.getElementById("chart_jichutineng6"));
-        var radar_chart_zhuanxiangtineng1 = echarts.init(document.getElementById("chart_zhuanxiangtineng1"));
-        var radar_chart_zhuanxiangtineng2 = echarts.init(document.getElementById("chart_zhuanxiangtineng2"));
-        var radar_chart_zhuanxiangtineng3 = echarts.init(document.getElementById("chart_zhuanxiangtineng3"));
-        var radar_chart_zhuanxiangtineng4 = echarts.init(document.getElementById("chart_zhuanxiangtineng4"));
-        var radar_chart_zhuanxiangtineng5 = echarts.init(document.getElementById("chart_zhuanxiangtineng5"));
-        var radar_chart_zhuanxiangtineng6 = echarts.init(document.getElementById("chart_zhuanxiangtineng6"));
-        var radar_chart_FMS1 = echarts.init(document.getElementById("chart_FMS1"));
-        var radar_chart_FMS2 = echarts.init(document.getElementById("chart_FMS2"));
-        var radar_chart_FMS3 = echarts.init(document.getElementById("chart_FMS3"));
-        var radar_chart_FMS4 = echarts.init(document.getElementById("chart_FMS4"));
-        var radar_chart_FMS5 = echarts.init(document.getElementById("chart_FMS5"));
-        var radar_chart_FMS6 = echarts.init(document.getElementById("chart_FMS6"));
-        var radar_chart_xll1 = echarts.init(document.getElementById("chart_xll1"));
-        var radar_chart_xll2 = echarts.init(document.getElementById("chart_xll2"));
-        var radar_chart_xll3 = echarts.init(document.getElementById("chart_xll3"));
-        var radar_chart_xll4 = echarts.init(document.getElementById("chart_xll4"));
-        var radar_chart_xll5 = echarts.init(document.getElementById("chart_xll5"));
-        var radar_chart_xll6 = echarts.init(document.getElementById("chart_xll6"));
-        var radar_chart_bxb = echarts.init(document.getElementById("chart_bxb"));
-        var radar_chart_pzc = echarts.init(document.getElementById("chart_pzc"));
-        var radar_chart_gt = echarts.init(document.getElementById("chart_gt"));
-        var radar_chart_hxb = echarts.init(document.getElementById("chart_hxb"));
-        var radar_chart_jsjm = echarts.init(document.getElementById("chart_jsjm"));
-        var radar_chart_xns = echarts.init(document.getElementById("chart_xns"));
-        var radar_chart_xqyj = echarts.init(document.getElementById("chart_xqyj"));
-        var radar_chart_xhdb = echarts.init(document.getElementById("chart_xhdb"));
-        // var radar_chart4 = echarts.init(document.getElementById("chart4"));
-        var option_jichutineng1 = {
-            title: {
-                text: '基础体能1',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
 
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '3000',
-                    max: 10
-                }, {
-                    name: '30',
-                    max: 10
-                }, {
-                    name: 'BMI',
-                    max: 10
-                }, {
-                    name: '卧推',
-                    max: 10
-                }, {
-                    name: '坐位体前屈',
-                    max: 10
-                }, {
-                    name: '垂直纵跳',
-                    max: 10
-                }, {
-                    name: '引体向上',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '背肌耐力',
-                    max: 10
-                }, {
-                    name: '腹肌耐力',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '基础体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_jichutineng2 = {
-            title: {
-                text: '基础体能2',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '3000',
-                    max: 10
-                }, {
-                    name: '30',
-                    max: 10
-                }, {
-                    name: 'BMI',
-                    max: 10
-                }, {
-                    name: '卧推',
-                    max: 10
-                }, {
-                    name: '坐位体前屈',
-                    max: 10
-                }, {
-                    name: '垂直纵跳',
-                    max: 10
-                }, {
-                    name: '引体向上',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '背肌耐力',
-                    max: 10
-                }, {
-                    name: '腹肌耐力',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '基础体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_jichutineng3 = {
-            title: {
-                text: '基础体能3',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '3000',
-                    max: 10
-                }, {
-                    name: '30',
-                    max: 10
-                }, {
-                    name: 'BMI',
-                    max: 10
-                }, {
-                    name: '卧推',
-                    max: 10
-                }, {
-                    name: '坐位体前屈',
-                    max: 10
-                }, {
-                    name: '垂直纵跳',
-                    max: 10
-                }, {
-                    name: '引体向上',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '背肌耐力',
-                    max: 10
-                }, {
-                    name: '腹肌耐力',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '基础体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_jichutineng4 = {
-            title: {
-                text: '基础体能4',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '3000',
-                    max: 10
-                }, {
-                    name: '30',
-                    max: 10
-                }, {
-                    name: 'BMI',
-                    max: 10
-                }, {
-                    name: '卧推',
-                    max: 10
-                }, {
-                    name: '坐位体前屈',
-                    max: 10
-                }, {
-                    name: '垂直纵跳',
-                    max: 10
-                }, {
-                    name: '引体向上',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '背肌耐力',
-                    max: 10
-                }, {
-                    name: '腹肌耐力',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '基础体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_jichutineng5 = {
-            title: {
-                text: '基础体能5',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '3000',
-                    max: 10
-                }, {
-                    name: '30',
-                    max: 10
-                }, {
-                    name: 'BMI',
-                    max: 10
-                }, {
-                    name: '卧推',
-                    max: 10
-                }, {
-                    name: '坐位体前屈',
-                    max: 10
-                }, {
-                    name: '垂直纵跳',
-                    max: 10
-                }, {
-                    name: '引体向上',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '背肌耐力',
-                    max: 10
-                }, {
-                    name: '腹肌耐力',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '基础体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_jichutineng6 = {
-            title: {
-                text: '基础体能6',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '3000',
-                    max: 10
-                }, {
-                    name: '30',
-                    max: 10
-                }, {
-                    name: 'BMI',
-                    max: 10
-                }, {
-                    name: '卧推',
-                    max: 10
-                }, {
-                    name: '坐位体前屈',
-                    max: 10
-                }, {
-                    name: '垂直纵跳',
-                    max: 10
-                }, {
-                    name: '引体向上',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '背肌耐力',
-                    max: 10
-                }, {
-                    name: '腹肌耐力',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '基础体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-
-        var option_zhuanxiangtineng1 = {
-            title: {
-                text: '专项体能1',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '400x5',
-                    max: 10
-                }, {
-                    name: '立定跳远',
-                    max: 10
-                }, {
-                    name: '原地二级跳（左）',
-                    max: 10
-                }, {
-                    name: '原地二级跳（右）',
-                    max: 10
-                }, {
-                    name: '耐力跑',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '双摇1500个',
-                    max: 10
-                }, {
-                    name: '四角跑20次',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9],
-                        name: '专项体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_zhuanxiangtineng2 = {
-            title: {
-                text: '专项体能2',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '400x5',
-                    max: 10
-                }, {
-                    name: '立定跳远',
-                    max: 10
-                }, {
-                    name: '原地二级跳（左）',
-                    max: 10
-                }, {
-                    name: '原地二级跳（右）',
-                    max: 10
-                }, {
-                    name: '耐力跑',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '双摇1500个',
-                    max: 10
-                }, {
-                    name: '四角跑20次',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 5, 9],
-                        name: '专项体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_zhuanxiangtineng3 = {
-            title: {
-                text: '专项体能3',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '400x5',
-                    max: 10
-                }, {
-                    name: '立定跳远',
-                    max: 10
-                }, {
-                    name: '原地二级跳（左）',
-                    max: 10
-                }, {
-                    name: '原地二级跳（右）',
-                    max: 10
-                }, {
-                    name: '耐力跑',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '双摇1500个',
-                    max: 10
-                }, {
-                    name: '四角跑20次',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 9, 1, 7],
-                        name: '专项体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_zhuanxiangtineng4 = {
-            title: {
-                text: '专项体能4',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '400x5',
-                    max: 10
-                }, {
-                    name: '立定跳远',
-                    max: 10
-                }, {
-                    name: '原地二级跳（左）',
-                    max: 10
-                }, {
-                    name: '原地二级跳（右）',
-                    max: 10
-                }, {
-                    name: '耐力跑',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '双摇1500个',
-                    max: 10
-                }, {
-                    name: '四角跑20次',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [8, 7, 6, 3, 5, 9, 1, 7],
-                        name: '专项体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_zhuanxiangtineng5 = {
-            title: {
-                text: '专项体能5',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '400x5',
-                    max: 10
-                }, {
-                    name: '立定跳远',
-                    max: 10
-                }, {
-                    name: '原地二级跳（左）',
-                    max: 10
-                }, {
-                    name: '原地二级跳（右）',
-                    max: 10
-                }, {
-                    name: '耐力跑',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '双摇1500个',
-                    max: 10
-                }, {
-                    name: '四角跑20次',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 3, 5, 9, 1, 7],
-                        name: '专项体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_zhuanxiangtineng6 = {
-            title: {
-                text: '专项体能6',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '400x5',
-                    max: 10
-                }, {
-                    name: '立定跳远',
-                    max: 10
-                }, {
-                    name: '原地二级跳（左）',
-                    max: 10
-                }, {
-                    name: '原地二级跳（右）',
-                    max: 10
-                }, {
-                    name: '耐力跑',
-                    max: 10
-                }, {
-                    name: '深蹲',
-                    max: 10
-                }, {
-                    name: '双摇1500个',
-                    max: 10
-                }, {
-                    name: '四角跑20次',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 3, 1, 7],
-                        name: '专项体能'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-
-        var option_FMS1 = {
-            title: {
-                text: 'FMS1',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '上踏步（左）',
-                    max: 10
-                }, {
-                    name: '上踏步（右）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（左）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（右）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（左）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（右）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（左）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（右） ',
-                    max: 10
-                }, {
-                    name: '深蹲 ',
-                    max: 10
-                }, {
-                    name: '躯干稳定俯卧撑 ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（左） ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（右）',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9],
-                        name: 'FMS'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_FMS2 = {
-            title: {
-                text: 'FMS2',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '上踏步（左）',
-                    max: 10
-                }, {
-                    name: '上踏步（右）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（左）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（右）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（左）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（右）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（左）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（右） ',
-                    max: 10
-                }, {
-                    name: '深蹲 ',
-                    max: 10
-                }, {
-                    name: '躯干稳定俯卧撑 ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（左） ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（右）',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9],
-                        name: 'FMS'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_FMS3 = {
-            title: {
-                text: 'FMS3',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '上踏步（左）',
-                    max: 10
-                }, {
-                    name: '上踏步（右）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（左）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（右）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（左）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（右）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（左）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（右） ',
-                    max: 10
-                }, {
-                    name: '深蹲 ',
-                    max: 10
-                }, {
-                    name: '躯干稳定俯卧撑 ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（左） ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（右）',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9],
-                        name: 'FMS'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_FMS4 = {
-            title: {
-                text: 'FMS4',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '上踏步（左）',
-                    max: 10
-                }, {
-                    name: '上踏步（右）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（左）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（右）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（左）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（右）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（左）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（右） ',
-                    max: 10
-                }, {
-                    name: '深蹲 ',
-                    max: 10
-                }, {
-                    name: '躯干稳定俯卧撑 ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（左） ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（右）',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9],
-                        name: 'FMS'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_FMS5 = {
-            title: {
-                text: 'FMS5',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '上踏步（左）',
-                    max: 10
-                }, {
-                    name: '上踏步（右）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（左）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（右）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（左）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（右）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（左）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（右） ',
-                    max: 10
-                }, {
-                    name: '深蹲 ',
-                    max: 10
-                }, {
-                    name: '躯干稳定俯卧撑 ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（左） ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（右）',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9],
-                        name: 'FMS'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_FMS6 = {
-            title: {
-                text: 'FMS6',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {},
-
-            radar: {
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [{
-                    name: '上踏步（左）',
-                    max: 10
-                }, {
-                    name: '上踏步（右）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（左）',
-                    max: 10
-                }, {
-                    name: '直线弓箭步（右）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（左）',
-                    max: 10
-                }, {
-                    name: '肩部灵活性（右）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（左）',
-                    max: 10
-                }, {
-                    name: '直腿主动上抬（右） ',
-                    max: 10
-                }, {
-                    name: '深蹲 ',
-                    max: 10
-                }, {
-                    name: '躯干稳定俯卧撑 ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（左） ',
-                    max: 10
-                }, {
-                    name: '扭转稳定性（右）',
-                    max: 10
-                }]
-            },
-            series: [{
-
-                // name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                // areaStyle: {normal: {}},
-                itemStyle: {
-                    normal: {
-                        color: '#a8bcd4'
-                    }
-                },
-                areaStyle: {
-                    color: '#5840D4',
-                },
-                data: [{
-                        value: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9],
-                        name: 'FMS'
-                    },
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-
-        var option_xll1 = {
-            title: {
-                text: '训练量1',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            series: [{
-
-                name: '训练量',
-                type: 'pie',
-                // areaStyle: {normal: {}},
-                radius: '80%',
-                // itemStyle: {
-                //     normal: {
-                //         color: '#a8bcd4'
-                //     }
-                // },
-                // areaStyle: {
-                //     color: '#5840D4',
-                // },
-                data: [{
-                        name: "体能（力量）",
-                        value: 60
-                    }, {
-                        name: "体能（专项）",
-                        value: 80
-                    }, {
-                        name: "技术（小技术）",
-                        value: 90
-                    }, {
-                        name: "技术（技战术）",
-                        value: 120
-                    }
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_xll2 = {
-            title: {
-                text: '训练量2',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            series: [{
-
-                name: '训练量',
-                type: 'pie',
-                // areaStyle: {normal: {}},
-                radius: '80%',
-                // itemStyle: {
-                //     normal: {
-                //         color: '#a8bcd4'
-                //     }
-                // },
-                // areaStyle: {
-                //     color: '#5840D4',
-                // },
-                data: [{
-                        name: "体能（力量）",
-                        value: 60
-                    }, {
-                        name: "体能（专项）",
-                        value: 80
-                    }, {
-                        name: "技术（小技术）",
-                        value: 90
-                    }, {
-                        name: "技术（技战术）",
-                        value: 120
-                    }
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_xll3 = {
-            title: {
-                text: '训练量3',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            series: [{
-
-                name: '训练量',
-                type: 'pie',
-                // areaStyle: {normal: {}},
-                radius: '80%',
-                // itemStyle: {
-                //     normal: {
-                //         color: '#a8bcd4'
-                //     }
-                // },
-                // areaStyle: {
-                //     color: '#5840D4',
-                // },
-                data: [{
-                        name: "体能（力量）",
-                        value: 60
-                    }, {
-                        name: "体能（专项）",
-                        value: 80
-                    }, {
-                        name: "技术（小技术）",
-                        value: 90
-                    }, {
-                        name: "技术（技战术）",
-                        value: 120
-                    }
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_xll4 = {
-            title: {
-                text: '训练量4',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            series: [{
-
-                name: '训练量',
-                type: 'pie',
-                // areaStyle: {normal: {}},
-                radius: '80%',
-                // itemStyle: {
-                //     normal: {
-                //         color: '#a8bcd4'
-                //     }
-                // },
-                // areaStyle: {
-                //     color: '#5840D4',
-                // },
-                data: [{
-                        name: "体能（力量）",
-                        value: 60
-                    }, {
-                        name: "体能（专项）",
-                        value: 80
-                    }, {
-                        name: "技术（小技术）",
-                        value: 90
-                    }, {
-                        name: "技术（技战术）",
-                        value: 120
-                    }
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_xll5 = {
-            title: {
-                text: '训练量5',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            series: [{
-
-                name: '训练量',
-                type: 'pie',
-                // areaStyle: {normal: {}},
-                radius: '80%',
-                // itemStyle: {
-                //     normal: {
-                //         color: '#a8bcd4'
-                //     }
-                // },
-                // areaStyle: {
-                //     color: '#5840D4',
-                // },
-                data: [{
-                        name: "体能（力量）",
-                        value: 60
-                    }, {
-                        name: "体能（专项）",
-                        value: 80
-                    }, {
-                        name: "技术（小技术）",
-                        value: 90
-                    }, {
-                        name: "技术（技战术）",
-                        value: 120
-                    }
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-        var option_xll6 = {
-            title: {
-                text: '训练量6',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            series: [{
-
-                name: '训练量',
-                type: 'pie',
-                // areaStyle: {normal: {}},
-                radius: '80%',
-                // itemStyle: {
-                //     normal: {
-                //         color: '#a8bcd4'
-                //     }
-                // },
-                // areaStyle: {
-                //     color: '#5840D4',
-                // },
-                data: [{
-                        name: "体能（力量）",
-                        value: 60
-                    }, {
-                        name: "体能（专项）",
-                        value: 80
-                    }, {
-                        name: "技术（小技术）",
-                        value: 90
-                    }, {
-                        name: "技术（技战术）",
-                        value: 120
-                    }
-                    //  {
-                    //     value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    //     name : '实际开销（Actual Spending）'
-                    // }
-                ]
-            }]
-        };
-
-        var option_bxb = {
-            title: {
-                text: '白细胞',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '白细胞',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_pzc = {
-            title: {
-                text: '皮质醇',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '皮质醇',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_gt = {
-            title: {
-                text: '睾酮',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '睾酮',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_hxb = {
-            title: {
-                text: '红细胞',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '红细胞',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_jsjm = {
-            title: {
-                text: '肌酸激酶',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '肌酸激酶',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_xns = {
-            title: {
-                text: '血尿素',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '血尿素',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_xqyj = {
-            title: {
-                text: '血球压积',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '血球压积',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-        var option_xhdb = {
-            title: {
-                text: '血红蛋白',
-                top: '5%',
-                left: '3%',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 20,
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                // formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6']
-            }],
-            yAxis: [{
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
-            }],
-            series: [{
-
-                name: '血红蛋白',
-                type: 'line',
-                data: [10, 6, 2, 5, 7, 9]
-            }]
-        };
-
-
-        radar_chart_jichutineng1.setOption(option_jichutineng1);
-        radar_chart_jichutineng2.setOption(option_jichutineng2);
-        radar_chart_jichutineng3.setOption(option_jichutineng3);
-        radar_chart_jichutineng4.setOption(option_jichutineng4);
-        radar_chart_jichutineng5.setOption(option_jichutineng5);
-        radar_chart_jichutineng6.setOption(option_jichutineng6);
-        radar_chart_zhuanxiangtineng1.setOption(option_zhuanxiangtineng1);
-        radar_chart_zhuanxiangtineng2.setOption(option_zhuanxiangtineng2);
-        radar_chart_zhuanxiangtineng3.setOption(option_zhuanxiangtineng3);
-        radar_chart_zhuanxiangtineng4.setOption(option_zhuanxiangtineng4);
-        radar_chart_zhuanxiangtineng5.setOption(option_zhuanxiangtineng5);
-        radar_chart_zhuanxiangtineng6.setOption(option_zhuanxiangtineng6);
-        radar_chart_FMS1.setOption(option_FMS1);
-        radar_chart_FMS2.setOption(option_FMS2);
-        radar_chart_FMS3.setOption(option_FMS3);
-        radar_chart_FMS4.setOption(option_FMS4);
-        radar_chart_FMS5.setOption(option_FMS5);
-        radar_chart_FMS6.setOption(option_FMS6);
-        radar_chart_xll1.setOption(option_xll1);
-        radar_chart_xll2.setOption(option_xll2);
-        radar_chart_xll3.setOption(option_xll3);
-        radar_chart_xll4.setOption(option_xll4);
-        radar_chart_xll5.setOption(option_xll5);
-        radar_chart_xll6.setOption(option_xll6);
-
-        radar_chart_bxb.setOption(option_bxb);
-        radar_chart_pzc.setOption(option_pzc);
-        radar_chart_gt.setOption(option_gt);
-        radar_chart_hxb.setOption(option_hxb);
-        radar_chart_jsjm.setOption(option_jsjm);
-        radar_chart_xns.setOption(option_xns);
-        radar_chart_xqyj.setOption(option_xqyj);
-        radar_chart_xhdb.setOption(option_xhdb);
-
-        $("#home1").css("height", $(document).height());
-        // radar_chart3.setOption(option1);
-        // radar_chart4.setOption(option1);
-    </script> -->
-
-    <!-- MODAL -->
-    <!-- <div id="enquirypopup" class="modal fade in " role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content row">
-                <div class="modal-header custom-modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>free access</h2>
-                </div>
-                <div class="modal-body">
-                    <form name="info_form" class="form-inline" action="#" method="post">
-                        <div class="form-group col-sm-12">
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <button class="subscribe-btn pull-right" type="submit" title="Subscribe">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </body>
 
 </html>
