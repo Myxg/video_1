@@ -133,10 +133,8 @@
                             </li>
                         </ul> -->
                         <div class="search-block">
-                            <!-- <form>
-                                <input type="search" placeholder="Search" placeholder="全英 女单" />
-                                <button><a>搜索</a></button>
-                            </form> -->
+                            <input id="content" type="search" placeholder="全英 女单" value="" />
+                            <button onclick="search()"><a>搜索</a></button>
                         </div>
                     </div>
                     <!-- /.nav-collapse -->
@@ -383,6 +381,28 @@
         $(".nav .dropdown").hover(function() {
             $(this).find(".dropdown-toggle").dropdown("toggle");
         });
+    </script>
+    <script type="text/javascript">
+        function search() {
+            u1 = window.location.search.split('?')[1];
+            var content = document.getElementById("content").value
+            if (content != null && content.length != 0) {
+                if (u1 != null && u1.length != 0) {
+                    u2 = u1.split('=')[0]
+                    username = u1.split('=')[1]
+                    console.log(username)
+                    if (u2 != null && u2.length != 0 && u2 == 'username') {
+                        location = "search_video.html?username=" + username + '&content=' + content;
+                    } else {
+                        location = "search_video.html?content=" + content;
+                    }
+                } else {
+                    location = "search_video.html?content=" + content;
+                }
+            } else {
+                location = '#';
+            }
+        }
     </script>
     <!-- MODAL -->
     <!-- <div id="enquirypopup" class="modal fade in " role="dialog">

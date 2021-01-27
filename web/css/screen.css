@@ -1290,7 +1290,7 @@ input[type=search] {
 }
 
 input[type=search]:focus {
-    width: 130px;
+    width: 200px;
     background-color: #fff;
     font-size: 16px;
 }

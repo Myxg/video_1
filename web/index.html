@@ -131,10 +131,8 @@
                             </li>
                         </ul> -->
                         <div class="search-block">
-                            <!-- <form id="search" action="##" method="post">
-                                <input type="search" placeholder="Search" placeholder="全英 女单" value="" />
-                                <button><a>搜索</a></button>
-                            </form> -->
+                            <input id="content" type="search" placeholder="全英 女单" value="" />
+                            <button onclick="search()"><a>搜索</a></button>
                         </div>
                     </div>
                     <!-- /.nav-collapse -->
@@ -432,9 +430,10 @@
             if (u1 != null && u1.length != 0) {
                 u2 = u1.split('=')[0]
                 username = u1.split('=')[1]
+                console.log(username)
                 if (u2 != null && u2.length != 0 && u2 == 'username') {
                     dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li><li><a href="playercn.html?username=' + username + '">中国球员</a></li><li><a href="upload.html?username=' + username + '">文件上传</a></li>'
-                    dl += '<h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>HELLO!</h2><br><h2>' + username + '</h2>'
+                    dl += '<h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>HELLO!</h2><br><h2>' + username + '</h2><br /><button class="subscribe-btn" onclick="update()">修改密码</button>'
                 } else {
                     dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
                     dl += '<h2 class="icon"><i class="fa fa-plug" aria-hidden="true"></i>登录</h2>' +
@@ -694,37 +693,63 @@
             });
         }
     </script>
-    <!-- <script type="text/javascript">
-        function search() {
-            var params = serializeForm('search');
-            console.log(params)
-            alert(params);
-            $.ajax({
-                url: 'http://127.0.0.1:8001/search/',
-                dataType: "JSON",
-                type: "POST",
-                async: "false",
-                data: $('search').serialize(),
+    <script text="text/javascript">
+        function update() {
+            layer.prompt({
+                title: '输入新口令，并确认',
+                maxlength: 15,
+                formType: 1,
+                // content: `<div><input style="font-size: 20px; height: 50px;border: 1px solid black;" ></div>`,
+            }, function(pass, index) {
+                console.log(username)
+                $.ajax({
+                    type: "POST", //方法类型
+                    async: true,
+                    dataType: "json", //预期服务器返回的数据类型
+                    url: "https://videos.hbang.com.cn/update/", //url
 
-                success: function(data) {
-                    var result = data['data'];
-                    if (result != null && result.length != 0) {
-                        for (var i = 0; i < result.length; i++) {
-                            var n = result[i]
-                            console.log(n)
-                                // typeStr += '<article class="col-lg-3 col-md-6 col-sm-4"><div class="post post-medium"><div class="thumbr"><a class="post-thumb" href="' + n['url'] + '" data-lity>' +
-                                //     '<span class="play-btn-border" title="Play"><i class="fa fa-play-circle headline-round" aria-hidden="true"></i></span>' +
-                                //     '<img class="img-responsive" src="https://extranet.bwfbadminton.com/docs/events/3801/logo-colour/danish_open.svg" alt="#"></a></div><div class="infor">' +
-                                //     '<h4><a class="title" href="#">' + n['name'] + '</a></h4></div></div></article>'
+                    data: {
+                        'username': username,
+                        'pass': pass,
+                    },
+                    success: function(data) {
+                        var result = data['data'];
+                        layer.close(index);
+                        layer.msg('<span style="font-size: 20px; height: 100px;line-height:65px;">修改成功！新密码：' + pass + '</span>', {
+                            area: ['400px', '100px'],
+                            offset: '100px',
+                            time: 2000,
+                        });
+                    },
+                });
 
-                        }
-                        // $('#match_list').html(typeStr); //用拼接的str设置id=wtype的模块的内容
-                    }
 
-                }
             });
+
         }
-    </script> -->
+    </script>
+    <script type="text/javascript">
+        function search() {
+            u1 = window.location.search.split('?')[1];
+            var content = document.getElementById("content").value
+            if (content != null && content.length != 0) {
+                if (u1 != null && u1.length != 0) {
+                    u2 = u1.split('=')[0]
+                    username = u1.split('=')[1]
+                    console.log(username)
+                    if (u2 != null && u2.length != 0 && u2 == 'username') {
+                        location = "search_video.html?username=" + username + '&content=' + content;
+                    } else {
+                        location = "search_video.html?content=" + content;
+                    }
+                } else {
+                    location = "search_video.html?content=" + content;
+                }
+            } else {
+                location = '#';
+            }
+        }
+    </script>
     <script>
         $(".nav .dropdown").hover(function() {
             $(this).find(".dropdown-toggle").dropdown("toggle");

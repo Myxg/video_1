@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -339,28 +339,29 @@
             if (u1 != null && u1.length != 0) {
                 u2 = u1.split('=')[0]
                 username = u1.split('=')[1].split('&')[0]
-                player = u1.split('=')[2]
+                    // content = u1.split('=')[2]
                 if (u2 != null && u2.length != 0 && u2 == 'username') {
                     dh += '<li><a href="index.html?username=' + username + '">首页</a></li><li><a href="player.html?username=' + username + '">球员</a></li><li><a href="match.html?username=' + username + '">赛事</a></li>' +
                         '<li><a href="playercn.html?username=' + username + '">中国球员</a></li><li><a href="upload.html?username=' + username + '">文件上传</a></li>'
-                    player = u1.split('=')[2]
+                    content = u1.split('=')[2]
                 } else {
                     dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
-                    player = u1.split('=')[1]
+                    content = u1.split('=')[1]
                 }
             } else {
                 dh += '<li><a href="index.html">首页</a></li><li><a href="player.html">球员</a></li><li><a href="match.html">赛事</a></li>'
-                player = u1.split('=')[1]
+                content = u1.split('=')[1]
             }
             $('#daohangli').html(dh);
             var typeStr = '';
+            console.log(content)
             $.ajax({
-                url: 'https://videos.hbang.com.cn/player_video/',
+                url: 'https://videos.hbang.com.cn/search/',
                 dataType: "JSON",
                 type: "GET",
                 async: "false",
                 data: {
-                    'player': player,
+                    'content': content,
                 },
                 success: function(data) {
                     var result = data['data'];

@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^playercn_list/$', views.playercn_list),
     url(r'^match_list/$', views.match_list),
     url(r'^playercn_video/$', views.playercn_video),
-    url(r'^upload/$', views.upload)
+    url(r'^upload/$', views.upload),
+    url(r'^update/$', views.update)
 
 ]
